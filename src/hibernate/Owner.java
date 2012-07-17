@@ -2,13 +2,13 @@ package hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 
 @Entity
 public class Owner {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String address;
@@ -40,6 +40,12 @@ public class Owner {
 	public Owner(int id, String name, String address) {
 		super();
 		this.id = id;
+		this.name = name;
+		this.address = address;
+	}
+
+	public Owner(String name, String address) {
+		super();
 		this.name = name;
 		this.address = address;
 	}

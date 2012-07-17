@@ -23,7 +23,7 @@ public class OwnerApplication {
 			tx = session.beginTransaction();
 
 			// Create new instance of Car and set values in it
-			Owner owner1 = new Owner(1, "SDA231", "30221.00");
+			Owner owner1 = new Owner("SDA231", "30221.00");
 			// save the car
 			session.persist(owner1);
 			// Create new instance of Car and set values in it
