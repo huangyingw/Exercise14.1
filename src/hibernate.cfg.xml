@@ -23,8 +23,9 @@
     <property name="hbm2ddl.auto">create</property>
 
     <!-- Mapping files -->
-    <mapping class="hibernate.Car"/>   
-    <mapping class="hibernate.Book"/>   
+    <mapping class="hibernate.Car"/>
+    <mapping class="hibernate.Book"/>
+    <mapping class="hibernate.Owner"/>
 
   </session-factory>
 </hibernate-configuration>
