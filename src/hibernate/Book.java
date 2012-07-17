@@ -1,5 +1,6 @@
 package hibernate;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,50 +9,70 @@ import javax.persistence.Id;
 public class Book {
 	@Id
 	@GeneratedValue
-	private long id;
-	private String brand;
-	private String year;
+	private int id;
+	private String title;
+	private String ISBN;
+	private String author;
 	private double price;
+	private Date publish_date;
 
 	public Book() {
 	}
 
-	public Book(String brand, String year, double price) {
-		this.brand = brand;
-		this.year = year;
+	public Book(String title, String isbn, String author, double price,
+			Date publish_date) {
+		this.title = title;
+		this.ISBN = isbn;
+		this.author = author;
 		this.price = price;
+		this.publish_date = publish_date;
 	}
 
-	public void setBrand(String brand) {
-		this.brand = brand;
+	public int getId() {
+		return id;
 	}
 
-	public String getBrand() {
-		return brand;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setYear(String year) {
-		this.year = year;
+	public String getTitle() {
+		return title;
 	}
 
-	public String getYear() {
-		return year;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public String getISBN() {
+		return ISBN;
+	}
+
+	public void setISBN(String isbn) {
+		ISBN = isbn;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public double getPrice() {
 		return price;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
-	public long getId() {
-		return id;
+	public Date getPublish_date() {
+		return publish_date;
 	}
 
+	public void setPublish_date(Date publish_date) {
+		this.publish_date = publish_date;
+	}
 }

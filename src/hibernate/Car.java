@@ -1,17 +1,22 @@
 package hibernate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Car {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String brand;
 	private String year;
 	private double price;
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	private Owner owner;
 
 	public Car() {
 	}
@@ -54,4 +59,11 @@ public class Car {
 		return id;
 	}
 
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
 }

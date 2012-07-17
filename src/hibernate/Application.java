@@ -12,7 +12,8 @@ public class Application {
 	private static SessionFactory sessionFactory;
 
 	static {
-		sessionFactory = new Configuration().configure().buildSessionFactory();
+		sessionFactory = new Configuration().configure()
+				.buildSessionFactory();
 	}
 
 	public static void main(String[] args) {
@@ -26,10 +27,15 @@ public class Application {
 
 			// Create new instance of Car and set values in it
 			Car car1 = new Car("BMW", "SDA231", 30221.00);
+			Owner owner1 = new Owner("Frank Brown", "Chicago");
+			car1.setOwner(owner1);
 			// save the car
 			session.persist(car1);
+			
 			// Create new instance of Car and set values in it
 			Car car2 = new Car("Mercedes", "HOO100", 4088.00);
+			Owner owner2 = new Owner("Jim Delows", "San Fransico");
+			car2.setOwner(owner2);
 			// save the car
 			session.persist(car2);
 
@@ -53,6 +59,7 @@ public class Application {
 			for (Car car : carList) {
 				System.out.println("brand= " + car.getBrand() + ", year= "
 						+ car.getYear() + ", price= " + car.getPrice());
+				System.out.println("Owner= " + car.getOwner().getName());
 			}
 			tx.commit();
 
