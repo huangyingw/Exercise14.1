@@ -1,8 +1,10 @@
 package hibernate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Car {
@@ -12,6 +14,17 @@ public class Car {
 	private String brand;
 	private String year;
 	private double price;
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private Owner owner;
+
+	public Owner getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Owner owner) {
+		this.owner = owner;
+	}
 
 	public Car() {
 	}
