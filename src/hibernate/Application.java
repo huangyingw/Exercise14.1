@@ -27,10 +27,14 @@ public class Application {
 			// Create new instance of Car and set values in it
 			Car car1 = new Car("BMW", "SDA231", 30221.00);
 			// save the car
+			Owner owner1 = new Owner("Ying Huang", "NY");
+			car1.setOwner(owner1);
 			session.persist(car1);
 			// Create new instance of Car and set values in it
 			Car car2 = new Car("Mercedes", "HOO100", 4088.00);
 			// save the car
+			Owner owner2 = new Owner("Another Ying Huang", "IO");
+			car2.setOwner(owner2);
 			session.persist(car2);
 
 			tx.commit();
@@ -53,6 +57,7 @@ public class Application {
 			for (Car car : carList) {
 				System.out.println("brand= " + car.getBrand() + ", year= "
 						+ car.getYear() + ", price= " + car.getPrice());
+				System.out.println("Owner= " + car.getOwner().getName());
 			}
 			tx.commit();
 
