@@ -23,7 +23,6 @@
 
     <!-- Mapping files -->
     <mapping class="hibernate.Car"/>
-    <mapping class="hibernate.Book"/>
     <mapping class="hibernate.Owner"/>
 
   </session-factory>
