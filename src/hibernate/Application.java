@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+@SuppressWarnings("deprecation")
 public class Application {
 	private static SessionFactory sessionFactory;
 
@@ -16,7 +17,6 @@ public class Application {
 	}
 
 	public static void main(String[] args) {
-		// Hibernate placeholders
 		Session session = null;
 		Transaction tx = null;
 
